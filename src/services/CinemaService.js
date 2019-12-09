@@ -3,7 +3,7 @@ const ENDPOINT = 'http://api.kvikmyndir.is/theaters';
 
 const cinemaService = () => {
     return {
-        getCinemas: fetch(ENDPOINT, {
+        getCinemas: () => fetch(ENDPOINT, {
             method: 'GET',
             headers: {
                 'Accept': 'application/json',
@@ -13,7 +13,9 @@ const cinemaService = () => {
         })
             .then((response) => response.json())
             .then((responseData) => {
-                console.log(responseData);
+                // console.log(responseData);
+                console.log("INSIDE SERVICES")
+                return responseData;
             })
     }
 };
