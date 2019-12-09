@@ -1,15 +1,18 @@
 export const getAuthenticatoin = () => {
     // Request                       
-    $.ajax({
-        url: 'http://api.biomynd.is/authenticate',
-        type: 'POST',
-        data: {
-            username: "My Username",
-            password: "My Password"
+    fetch('http://api.kvikmyndir.is/authenticate', {
+        method: 'POST',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
         },
-        dataType: 'json',
-        success: function (response) {
-            console.log(response);
-        }
-    });
+        body: JSON.stringify({
+            username: 'arnara',
+            password: 'Abc.123'
+        })
+    })
+        .then((response) => response.json())
+        .then((responseData) => {
+            console.log(responseData);
+        })
 }
