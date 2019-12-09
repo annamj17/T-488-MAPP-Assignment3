@@ -1,6 +1,21 @@
 import React from 'react';
 import { StyleSheet, View, Text } from 'react-native';
+import { connect } from 'react-redux';
 import { getAuthenticatoin } from '../../services/Authentication';
+import { getCinemas } from '../../actions/cinemaActions';
+
+function mapStateToProps(state) {
+    return { getCinemas: state.getCinemas }
+}
+
+const mapDispatchToProps = dispatch => {
+    return {
+        updateGetCinemas: () => {
+            dispatch(updateGetCinemas());
+            
+        }
+    };
+};
 
 class CinemasView extends React.Component {
 
@@ -10,6 +25,7 @@ class CinemasView extends React.Component {
     
     componentDidMount() { 
         // getAuthenticatoin();
+        // getCinemas();
     };
     
     render () {
@@ -28,4 +44,4 @@ const styles = StyleSheet.create({
     }
 });
 
-export default CinemasView;
+export default connect(mapStateToProps, mapDispatchToProps)(CinemasView);
