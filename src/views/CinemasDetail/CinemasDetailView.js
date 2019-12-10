@@ -6,36 +6,41 @@ import RenderAllCinemaDetails from '../../components/RenderAllCinemaDetails/Rend
 import RenderAllMovies from '../../components/RenderAllMovies/RenderAllMovies';
 
 const CinemasDetailView = ({ pressedCinema, pressedMovies }) => {
-
-    return (
-        <ScrollView>
-            <RenderAllCinemaDetails {...pressedCinema} />
-            <RenderAllMovies pressedMovies={pressedMovies} />
-        </ScrollView>
-    )
+	// 	console.log("pressedCinema.title", pressedCinema.name);
+	// 	var name = "";
+	// 	name = pressedCinema.name;
+	// 	static navigationOptions = ({ navigation }) => {
+	// 		const { params } = navigation.state;
+	// ?
+	return (
+		<ScrollView>
+			<RenderAllCinemaDetails {...pressedCinema} />
+			<RenderAllMovies pressedMovies={pressedMovies} />
+		</ScrollView>
+	)
 }
 
 const mapStateToProps = (reduxStoreState, myProps) => {
-    const { cinema, movie } = reduxStoreState;
-    const { navigation } = myProps;
-    const cinemaIdent = navigation.getParam('id', 0);
-    const pressedCinema = cinema.find(c => c.id === cinemaIdent)
-    const pressedMovies = movie.filter(m => {
-            return m.showtimes.some(s => s.cinema.id === cinemaIdent)
-        }).map(m => {
-            return {
-                id: m.id,
-                title: m.title,
-                genres: m.genres,
-                poster: m.poster,
-                year: m.year
-            };
-        });
-        console.log(pressedMovies)
-    return {
-        pressedCinema,
-        pressedMovies
-    }
+	const { cinema, movie } = reduxStoreState;
+	const { navigation } = myProps;
+	const cinemaIdent = navigation.getParam('id', 0);
+	const pressedCinema = cinema.find(c => c.id === cinemaIdent)
+	const pressedMovies = movie.filter(m => {
+		return m.showtimes.some(s => s.cinema.id === cinemaIdent)
+	}).map(m => {
+		return {
+			id: m.id,
+			title: m.title,
+			genres: m.genres,
+			poster: m.poster,
+			year: m.year
+		};
+	});
+	console.log(pressedMovies)
+	return {
+		pressedCinema,
+		pressedMovies
+	}
 
 };
 

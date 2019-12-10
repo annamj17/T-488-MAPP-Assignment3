@@ -8,51 +8,51 @@ import RenderAllCinemas from '../../components/RenderAllCinemas/RenderAllCinemas
 
 class CinemasView extends React.Component {
 
-    static navigationOptions = {
-        headerTitle: 'Cinemas',
-        headerTitleStyle: {
-            fontWeight: 'bold',
-            fontSize: 20
-        },
-    };
+	static navigationOptions = {
+		headerTitle: 'Cinemas',
+		headerTitleStyle: {
+			fontWeight: 'bold',
+			fontSize: 20
+		},
+	};
 
-    constructor(props) {
-        super(props);
-        this.state = {
-        };
-    }
-    
-    componentDidMount() { 
-        this.props.getCinemas();
-        this.props.getMovies();
-    };
+	constructor(props) {
+		super(props);
+		this.state = {
+		};
+	}
 
-    render () {
+	componentDidMount() {
+		this.props.getCinemas();
+		this.props.getMovies();
+	};
 
-        const { navigate } = this.props.navigation;
+	render() {
 
-        return (
-            <View style={styles.screens}>
-            <RenderAllCinemas
-                cinemasData={this.props.cinemas}
-                onPress={id => navigate('CinemasDetailView', { id: id })}
-            />
-            </View>
-        );
-    }
+		const { navigate } = this.props.navigation;
+
+		return (
+			<View style={styles.screens}>
+				<RenderAllCinemas
+					cinemasData={this.props.cinemas}
+					onPress={id => navigate('CinemasDetailView', { id: id })}
+				/>
+			</View>
+		);
+	}
 }
 
 const styles = StyleSheet.create({
-    screens: {
-        flex: 1
-    }
+	screens: {
+		flex: 1
+	}
 });
 
 const mapStateToProps = (reduxStoreState) => {
-    // console.log(reduxStoreState);
-    return {
-        cinemas: reduxStoreState.cinema.sort((a, b) => a.name.localeCompare(b.name, 'is')),
-    }
+	// console.log(reduxStoreState);
+	return {
+		cinemas: reduxStoreState.cinema.sort((a, b) => a.name.localeCompare(b.name, 'is')),
+	}
 };
 
 export default connect(mapStateToProps, { getCinemas, getMovies })(CinemasView);
