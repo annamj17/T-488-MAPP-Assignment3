@@ -5,38 +5,37 @@ import { getAuthenticatoin } from '../../services/Authentication';
 import { getCinemas } from '../../actions/cinemaActions';
 import RenderAllCinemas from '../../components/RenderAllCinemas/RenderAllCinemas';
 
-// function mapStateToProps(state) {
-//     return { getCinemas: state.getCinemas }
-// }
-
-// const mapDispatchToProps = dispatch => {
-//     return {
-//         updateGetCinemas: () => {
-//             dispatch(updateGetCinemas());
-            
-//         }
-//     };
-// };
-
 class CinemasView extends React.Component {
+
+    static navigationOptions = {
+        headerTitle: 'Cinemas',
+        headerTitleStyle: {
+            fontWeight: 'bold',
+            fontSize: 20
+        },
+    };
 
     constructor(props) {
         super(props);
+        this.state = {
+        };
     }
     
     componentDidMount() { 
         // getAuthenticatoin();
         this.props.getCinemas();
     };
-    
+
     render () {
+
+        const { navigate } = this.props.navigation;
+
         return (
             <View style={styles.screens}>
-                <Text>Whhhooooop!</Text>
-                {/* <RenderAllCinemas
-                    cinemas={filteredData}
-                    onPress={name => navigate('ContactDetailView', { name: name })}
-                /> */}
+            <RenderAllCinemas
+                cinemasData={this.props.cinemas}
+                onPress={id => navigate('CinemasDetailView', { id: id })}
+            />
             </View>
         );
     }
@@ -49,4 +48,10 @@ const styles = StyleSheet.create({
     }
 });
 
-export default connect(null, { getCinemas })(CinemasView);
+const mapStateToProps = (reduxStoreState) => {
+    return {
+        cinemas: reduxStoreState.cinema,
+    }
+};
+
+export default connect(mapStateToProps, { getCinemas })(CinemasView);
