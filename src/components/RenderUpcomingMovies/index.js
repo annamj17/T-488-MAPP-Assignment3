@@ -6,16 +6,19 @@ const RenderUpcomingMovies = ({ movieData, extraData }) => {
 
 	return (
 		<View>
-			<FlatList>
+			<FlatList
 				data={movieData}
-				extraData={extraData}
-				renderItem={({ item: { name } })} => (
+				renderItem={({ item: { id, name, website }, index }) => (
 					<ListItem
-					title={name}
-				/>
-				)
-				keyExtractor={item.id.toString()}
-			</FlatList>
+						title={name}
+						index={index}
+						subtitle={website}
+						bottomDivider
+						chevron
+
+					/>
+				)}
+				keyExtractor={({ id }) => id.toString()} />
 		</View>
 	);
 }
