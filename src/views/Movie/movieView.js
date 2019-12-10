@@ -1,5 +1,5 @@
 import React from 'react';
-import { View } from 'react-native';
+import { View, Text } from 'react-native';
 import { connect } from 'react-redux';
 import RenderAllMovieDetails from '../../components/RenderAllMovieDetails/RenderAllMovieDetails';
 
@@ -7,7 +7,8 @@ const movieView = ({ pressedMovie }) => {
 
     return (
         <View>
-            <RenderAllMovieDetails pressedMovie={pressedMovie} />
+            <Text>HALLO!!!</Text>
+            {/* <RenderAllMovieDetails pressedMovie={pressedMovie} /> */}
         </View>
     )
 }

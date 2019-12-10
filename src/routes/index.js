@@ -5,13 +5,16 @@ import { createBottomTabNavigator } from 'react-navigation-tabs'
 
 import CinemasView from '../views/Cinemas/CinemasView';
 import CinemasDetailView from '../views/CinemasDetail/CinemasDetailView';
+
+import movieView from '../views/Movie/movieView';
 import UpcomingMoviesView from '../views/UpcomingMovies/UpcomingMoviesView'
 import { Icon } from 'react-native-elements';
 
 const HomeStack = createStackNavigator(
 	{
 		CinemasView: CinemasView,
-		CinemasDetailView: CinemasDetailView
+		CinemasDetailView: CinemasDetailView,
+    movieView: movieView
 	},
 	{
 		defaultNavigationOptions: {
@@ -31,7 +34,6 @@ const HomeStack = createStackNavigator(
 		}
 	}
 );
-
 
 const App = createBottomTabNavigator({
 	Home: { screen: HomeStack },

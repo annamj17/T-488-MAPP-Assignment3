@@ -1,17 +1,17 @@
 import React from 'react';
-import { View } from 'react-native';
+import { View, ScrollView } from 'react-native';
 import { connect } from 'react-redux';
 import { getCinemas } from '../../actions/cinemaActions';
 import RenderAllCinemaDetails from '../../components/RenderAllCinemaDetails/RenderAllCinemaDetails';
 import RenderAllMovies from '../../components/RenderAllMovies/RenderAllMovies';
 
-const CinemasDetailView = ({ pressedCinema, pressedMovies, onPress }) => {
+const CinemasDetailView = ({ pressedCinema, pressedMovies }) => {
 
     return (
-        <View>
+        <ScrollView>
             <RenderAllCinemaDetails {...pressedCinema} />
             <RenderAllMovies pressedMovies={pressedMovies} />
-        </View>
+        </ScrollView>
     )
 }
 
@@ -28,7 +28,7 @@ const mapStateToProps = (reduxStoreState, myProps) => {
                 title: m.title,
                 genres: m.genres,
                 poster: m.poster,
-                releaseYear: m.releaseYear
+                year: m.year
             };
         });
         console.log(pressedMovies)

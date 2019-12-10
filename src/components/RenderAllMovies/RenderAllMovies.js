@@ -9,12 +9,12 @@ const RenderAllMovies = ({ pressedMovies, onPress }) => {
         <View>
             <FlatList
                 data={pressedMovies}
-                renderItem={({ item: { id, title, releaseYear, poster, onPress }, index }) => (
+                renderItem={({ item: { id, title, genres, year, poster }, index }) => (
                     <ListItem
                         title={title}
-                        subtitle={releaseYear}
                         index={index}
-                        //subtitle={website}
+                        subtitle={year}
+                        // rightSubtitle={genres}
                         leftAvatar={{
                             source: { uri: poster },
                             size: "large",
