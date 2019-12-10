@@ -7,22 +7,17 @@ const RenderAllCinemas = ({ cinemasData, onPress }) => {
         <View>
             <FlatList
                 data={cinemasData}
-                renderItem={({ item: { name, website }, index }) => (
+                renderItem={({ item: { id, name, website }, index }) => (
                     <ListItem
                         title={name}
                         index={index}
                         subtitle={website}
-                        // leftAvatar={{
-                        //     source: { uri: imageUri },
-                        //     size: "large",
-                        //     containerStyle: { marginTop: 5 }
-                        // }}
                         bottomDivider
                         chevron
-                        onPress={() => onPress(name)}
+                        onPress={() => onPress(id)}
                     />
                 )}
-                keyExtractor={item => item.name.toString()}
+                keyExtractor={ ({id}) => id.toString() }
             />
         </View>
     );
