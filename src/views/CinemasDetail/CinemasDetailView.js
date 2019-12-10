@@ -6,11 +6,13 @@ import RenderAllCinemaDetails from '../../components/RenderAllCinemaDetails/Rend
 import RenderAllMovies from '../../components/RenderAllMovies/RenderAllMovies';
 import movieView from '../../views/Movie/movieView';
 
-const CinemasDetailView = ({ pressedCinema, pressedMovies }) => {
+const CinemasDetailView = ({ pressedCinema, pressedMovies, navigation: { navigate }, onPress }) => {
 	return (
 		<ScrollView>
 			<RenderAllCinemaDetails {...pressedCinema} />
-			<RenderAllMovies pressedMovies={pressedMovies} />
+			<RenderAllMovies pressedMovies={pressedMovies} 
+                onPress={id => navigate('movieView', { id: id })}
+            />
 		</ScrollView>
 	)
 }
