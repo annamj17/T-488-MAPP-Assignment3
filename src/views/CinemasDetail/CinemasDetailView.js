@@ -1,55 +1,47 @@
 import React from 'react';
-import { StyleSheet, View, Text } from 'react-native';
+import { View } from 'react-native';
 import { connect } from 'react-redux';
-import { getAuthenticatoin } from '../../services/Authentication';
 import { getCinemas } from '../../actions/cinemaActions';
-import RenderAllCinemas from '../../components/RenderAllCinemas/RenderAllCinemas';
+import RenderAllCinemaDetails from '../../components/RenderAllCinemaDetails/RenderAllCinemaDetails';
+import RenderAllMovies from '../../components/RenderAllMovies/RenderAllMovies';
 
-class CinemasDetailView extends React.Component {
+const CinemasDetailView = ({ pressedCinema, pressedMovies }) => {
 
-    static navigationOptions = {
-        headerTitle: 'Cinema Details',
-        headerTitleStyle: {
-            fontWeight: 'bold',
-            fontSize: 20
-        },
-    };
-
-    constructor(props) {
-        super(props);
-        this.state = {
-        };
-    }
-
-    componentDidMount() {
-        // getAuthenticatoin();
-        this.props.getCinemas();
-    };
-
-    render() {
-        return (
-            <View style={styles.screens}>
-                <Text>Whhhooooop!</Text>
-                {/* <RenderAllCinemas
-                    cinemasData={this.props.cinemas}
-                    onPress={id => navigate('CinemasDetailView', { id: id })}
-                /> */}
-            </View>
-        );
-    }
-
+    return (
+        <View>
+            <RenderAllCinemaDetails {...pressedCinema} />
+            <RenderAllMovies pressedMovies={pressedMovies} />
+        </View>
+    )
 }
 
-const styles = StyleSheet.create({
-    screens: {
-        flex: 1
+const mapStateToProps = (reduxStoreState, myProps) => {
+    const { cinema } = reduxStoreState;
+    const { navigation } = myProps;
+    const cinemaIdent = navigation.getParam('id', 0);
+    const pressedCinema = cinema.find(c => c.id === cinemaIdent)
+    const pressedMovies = reduxStoreState.movie.filter(m => {
+            return m.showtimes.some(s => s.cinema.id === cinemaIdent)
+        }).map(m => {
+            return {
+                id: m.id,
+                title: m.title
+            };
+        })
+    // console.log("MOVIES", movie);
+    return {
+        pressedCinema,
+        pressedMovies
+        // movies: reduxStoreState.movie.filter(m => {
+        //     return m.showtimes.some(s => s.cinema.id === cinemaIdent)
+        // }).map(m => {
+        //     return {
+        //         id: m.id,
+        //         title: console.log(m.title)
+        //     };
+        // })
     }
-});
 
-// const mapStateToProps = (reduxStoreState) => {
-//     return {
-//         cinemas: reduxStoreState.cinema,
-//     }
-// };
+};
 
-export default connect(null, { getCinemas })(CinemasDetailView);
+export default connect(mapStateToProps)(CinemasDetailView);
