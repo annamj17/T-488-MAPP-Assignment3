@@ -1,17 +1,12 @@
 import React from 'react';
-import { View, ScrollView } from 'react-native';
+import { View, ScrollView, TouchableHighlight, TouchableOpacity } from 'react-native';
 import { connect } from 'react-redux';
 import { getCinemas } from '../../actions/cinemaActions';
 import RenderAllCinemaDetails from '../../components/RenderAllCinemaDetails/RenderAllCinemaDetails';
 import RenderAllMovies from '../../components/RenderAllMovies/RenderAllMovies';
+import movieView from '../../views/Movie/movieView';
 
 const CinemasDetailView = ({ pressedCinema, pressedMovies }) => {
-	// 	console.log("pressedCinema.title", pressedCinema.name);
-	// 	var name = "";
-	// 	name = pressedCinema.name;
-	// 	static navigationOptions = ({ navigation }) => {
-	// 		const { params } = navigation.state;
-	// ?
 	return (
 		<ScrollView>
 			<RenderAllCinemaDetails {...pressedCinema} />
@@ -41,6 +36,7 @@ const mapStateToProps = (reduxStoreState, myProps) => {
 		pressedCinema,
 		pressedMovies
 	}
+
 
 };
 
