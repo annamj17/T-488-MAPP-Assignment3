@@ -5,7 +5,7 @@ import { getCinemas } from '../../actions/cinemaActions';
 import RenderAllCinemaDetails from '../../components/RenderAllCinemaDetails/RenderAllCinemaDetails';
 import RenderAllMovies from '../../components/RenderAllMovies/RenderAllMovies';
 
-const CinemasDetailView = ({ pressedCinema, pressedMovies }) => {
+const CinemasDetailView = ({ pressedCinema, pressedMovies, onPress }) => {
 
     return (
         <View>
@@ -16,32 +16,28 @@ const CinemasDetailView = ({ pressedCinema, pressedMovies }) => {
 }
 
 const mapStateToProps = (reduxStoreState, myProps) => {
-    const { cinema } = reduxStoreState;
+    const { cinema, movie } = reduxStoreState;
     const { navigation } = myProps;
     const cinemaIdent = navigation.getParam('id', 0);
     const pressedCinema = cinema.find(c => c.id === cinemaIdent)
-    const pressedMovies = reduxStoreState.movie.filter(m => {
+    const pressedMovies = movie.filter(m => {
             return m.showtimes.some(s => s.cinema.id === cinemaIdent)
         }).map(m => {
             return {
                 id: m.id,
-                title: m.title
+                title: m.title,
+                genres: m.genres,
+                poster: m.poster,
+                releaseYear: m.releaseYear
             };
-        })
-    // console.log("MOVIES", movie);
+        });
+        console.log(pressedMovies)
     return {
         pressedCinema,
         pressedMovies
-        // movies: reduxStoreState.movie.filter(m => {
-        //     return m.showtimes.some(s => s.cinema.id === cinemaIdent)
-        // }).map(m => {
-        //     return {
-        //         id: m.id,
-        //         title: console.log(m.title)
-        //     };
-        // })
     }
 
 };
 
 export default connect(mapStateToProps)(CinemasDetailView);
+
