@@ -1,8 +1,9 @@
 import React from 'react';
-import { StyleSheet, View, Text } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import { connect } from 'react-redux';
 import { getAuthenticatoin } from '../../services/Authentication';
 import { getCinemas } from '../../actions/cinemaActions';
+import { getMovies } from '../../actions/movieAction';
 import RenderAllCinemas from '../../components/RenderAllCinemas/RenderAllCinemas';
 
 class CinemasView extends React.Component {
@@ -22,8 +23,8 @@ class CinemasView extends React.Component {
     }
     
     componentDidMount() { 
-        // getAuthenticatoin();
         this.props.getCinemas();
+        this.props.getMovies();
     };
 
     render () {
@@ -39,7 +40,6 @@ class CinemasView extends React.Component {
             </View>
         );
     }
-    
 }
 
 const styles = StyleSheet.create({
@@ -49,9 +49,10 @@ const styles = StyleSheet.create({
 });
 
 const mapStateToProps = (reduxStoreState) => {
+    // console.log(reduxStoreState);
     return {
-        cinemas: reduxStoreState.cinema,
+        cinemas: reduxStoreState.cinema.sort((a, b) => a.name.localeCompare(b.name, 'is')),
     }
 };
 
-export default connect(mapStateToProps, { getCinemas })(CinemasView);
+export default connect(mapStateToProps, { getCinemas, getMovies })(CinemasView);

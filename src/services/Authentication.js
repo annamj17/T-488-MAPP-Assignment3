@@ -1,6 +1,6 @@
-export const getAuthenticatoin = () => {
+export const getAuthentication = () => {
     // Request                       
-    fetch('http://api.kvikmyndir.is/authenticate', {
+   return fetch('http://api.kvikmyndir.is/authenticate', {
         method: 'POST',
         headers: {
             'Accept': 'application/json',
@@ -13,6 +13,6 @@ export const getAuthenticatoin = () => {
     })
         .then((response) => response.json())
         .then((responseData) => {
-            console.log(responseData);
+            return responseData.token;
         })
 }
