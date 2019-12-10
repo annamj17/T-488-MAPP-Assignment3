@@ -45,16 +45,16 @@ class CinemasView extends React.Component {
 }
 
 const styles = StyleSheet.create({
-    screens: {
-        flex: 1
-    }
+	screens: {
+		flex: 1
+	}
 });
 
 const mapStateToProps = (reduxStoreState) => {
-    // console.log(reduxStoreState);
-    return {
-        cinemas: reduxStoreState.cinema.sort((a, b) => a.name.localeCompare(b.name, 'is')),
-    }
+	// console.log(reduxStoreState);
+	return {
+		cinemas: reduxStoreState.cinema.sort((a, b) => a.name.localeCompare(b.name, 'is')),
+	}
 };
 
 export default connect(mapStateToProps, { getCinemas, getMovies, getUpcomingMovies })(CinemasView);
