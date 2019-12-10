@@ -2,20 +2,24 @@ import React from 'react';
 import { FlatList, View } from 'react-native';
 import { ListItem } from 'react-native-elements';
 
-const RenderUpcomingMovies = ({ movieData, extraData }) => {
+const RenderUpcomingMovies = ({ upcomingMovieData }) => {
 
 	return (
 		<View>
 			<FlatList
-				data={movieData}
-				renderItem={({ item: { id, name, website }, index }) => (
+				data={upcomingMovieData}
+				renderItem={({ item: { id, title, releasedateIS, poster }, index }) => (
 					<ListItem
-						title={name}
+						id={id}
+						title={title}
 						index={index}
-						subtitle={website}
+						subtitle={releasedateIS}
+						leftAvatar={{
+							source: { uri: poster },
+							size: "large",
+							containerStyle: { marginTop: 5 }
+						}}
 						bottomDivider
-						chevron
-
 					/>
 				)}
 				keyExtractor={({ id }) => id.toString()} />

@@ -4,42 +4,44 @@ import { connect } from 'react-redux';
 import { getAuthenticatoin } from '../../services/Authentication';
 import { getCinemas } from '../../actions/cinemaActions';
 import { getMovies } from '../../actions/movieAction';
+import { getUpcomingMovies } from '../../actions/upcomingMovieAction';
 import RenderAllCinemas from '../../components/RenderAllCinemas/RenderAllCinemas';
 
 class CinemasView extends React.Component {
 
-	static navigationOptions = {
-		headerTitle: 'Cinemas',
-		headerTitleStyle: {
-			fontWeight: 'bold',
-			fontSize: 20
-		},
-	};
+    static navigationOptions = {
+        headerTitle: 'Cinemas',
+        headerTitleStyle: {
+            fontWeight: 'bold',
+            fontSize: 20
+        },
+    };
 
-	constructor(props) {
-		super(props);
-		this.state = {
-		};
-	}
+    constructor(props) {
+        super(props);
+        this.state = {
+        };
+    }
+    
+    componentDidMount() { 
+        this.props.getCinemas();
+        this.props.getMovies();
+        this.props.getUpcomingMovies();
+    };
 
-	componentDidMount() {
-		this.props.getCinemas();
-		this.props.getMovies();
-	};
+    render () {
 
-	render() {
+        const { navigate } = this.props.navigation;
 
-		const { navigate } = this.props.navigation;
-
-		return (
-			<View style={styles.screens}>
-				<RenderAllCinemas
-					cinemasData={this.props.cinemas}
-					onPress={id => navigate('CinemasDetailView', { id: id })}
-				/>
-			</View>
-		);
-	}
+        return (
+            <View style={styles.screens}>
+            <RenderAllCinemas
+                cinemasData={this.props.cinemas}
+                onPress={id => navigate('CinemasDetailView', { id: id })}
+            />
+            </View>
+        );
+    }
 }
 
 const styles = StyleSheet.create({
@@ -55,4 +57,4 @@ const mapStateToProps = (reduxStoreState) => {
 	}
 };
 
-export default connect(mapStateToProps, { getCinemas, getMovies })(CinemasView);
+export default connect(mapStateToProps, { getCinemas, getMovies, getUpcomingMovies })(CinemasView);
