@@ -1,10 +1,10 @@
-import cinemaService from '../services/CinemaService';
+import getAllCinemas from '../services/CinemaService';
 import * as constants from '../constants';
 
 export const getCinemas = () => {
     return async dispatch => {
         try {
-            const cinemas = await cinemaService.getCinemas();
+            const cinemas = await getAllCinemas();
             dispatch(getcinemasSuccess(cinemas));
         } catch (err) {
             // TODO: Should dispatch an error action
