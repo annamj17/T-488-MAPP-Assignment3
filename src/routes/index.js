@@ -2,19 +2,19 @@ import * as React from 'react';
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 import { createBottomTabNavigator } from 'react-navigation-tabs'
+import { Icon } from 'react-native-elements';
 
 import CinemasView from '../views/Cinemas/CinemasView';
 import CinemasDetailView from '../views/CinemasDetail/CinemasDetailView';
-
 import movieView from '../views/Movie/movieView';
 import UpcomingMoviesView from '../views/UpcomingMovies/UpcomingMoviesView'
-import { Icon } from 'react-native-elements';
 
 const HomeStack = createStackNavigator(
 	{
 		CinemasView: CinemasView,
 		CinemasDetailView: CinemasDetailView,
-    movieView: movieView
+		movieView: movieView,
+		UpcomingMoviesView: UpcomingMoviesView
 	},
 	{
 		defaultNavigationOptions: {
@@ -29,7 +29,7 @@ const HomeStack = createStackNavigator(
 				fontWeight: 'bold',
 				fontSize: 20
 			},
-			headerBackTitle: "#0B3954",
+			headerBackTitle: "back",
 			headerTintColor: '#F9F9F9'
 		}
 	}

@@ -31,7 +31,7 @@ const mapStateToProps = (reduxStoreState, myProps) => {
                 year: m.year
             };
         });
-        console.log(pressedMovies)
+        // console.log(pressedMovies)
     return {
         pressedCinema,
         pressedMovies

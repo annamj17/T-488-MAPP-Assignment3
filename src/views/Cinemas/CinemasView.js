@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { getAuthenticatoin } from '../../services/Authentication';
 import { getCinemas } from '../../actions/cinemaActions';
 import { getMovies } from '../../actions/movieAction';
+import { getUpcomingMovies } from '../../actions/upcomingMovieAction';
 import RenderAllCinemas from '../../components/RenderAllCinemas/RenderAllCinemas';
 
 class CinemasView extends React.Component {
@@ -25,6 +26,7 @@ class CinemasView extends React.Component {
     componentDidMount() { 
         this.props.getCinemas();
         this.props.getMovies();
+        this.props.getUpcomingMovies();
     };
 
     render () {
@@ -55,4 +57,4 @@ const mapStateToProps = (reduxStoreState) => {
     }
 };
 
-export default connect(mapStateToProps, { getCinemas, getMovies })(CinemasView);
+export default connect(mapStateToProps, { getCinemas, getMovies, getUpcomingMovies })(CinemasView);
