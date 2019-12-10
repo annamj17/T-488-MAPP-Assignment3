@@ -8,7 +8,8 @@ const movieView = ({ pressedMovie }) => {
     return (
         <View>
             <Text>HALLO!!!</Text>
-            {/* <RenderAllMovieDetails pressedMovie={pressedMovie} /> */}
+            <RenderAllMovieDetails  pressedMovie={console.log("PRESSED MOVIE: ", pressedMovie)} />
+            {/* <RenderAllMovieDetails pressedMovie={console.log("PRESSED:",pressedMovie)} /> */}
         </View>
     )
 }

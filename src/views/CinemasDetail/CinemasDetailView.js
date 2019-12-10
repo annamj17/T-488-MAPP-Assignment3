@@ -1,16 +1,19 @@
 import React from 'react';
-import { View, ScrollView } from 'react-native';
+import { View, ScrollView, TouchableHighlight, TouchableOpacity } from 'react-native';
 import { connect } from 'react-redux';
 import { getCinemas } from '../../actions/cinemaActions';
 import RenderAllCinemaDetails from '../../components/RenderAllCinemaDetails/RenderAllCinemaDetails';
 import RenderAllMovies from '../../components/RenderAllMovies/RenderAllMovies';
+import movieView from '../../views/Movie/movieView';
 
-const CinemasDetailView = ({ pressedCinema, pressedMovies }) => {
+const CinemasDetailView = ({ pressedCinema, pressedMovies, navigation: { navigate }, onPress  }) => {
 
     return (
         <ScrollView>
             <RenderAllCinemaDetails {...pressedCinema} />
-            <RenderAllMovies pressedMovies={pressedMovies} />
+            <RenderAllMovies pressedMovies={pressedMovies} 
+                onPress={id => navigate('movieView', { id: id })}      
+            />
         </ScrollView>
     )
 }
@@ -31,12 +34,11 @@ const mapStateToProps = (reduxStoreState, myProps) => {
                 year: m.year
             };
         });
-        console.log(pressedMovies)
+        //console.log(pressedMovies)
     return {
         pressedCinema,
         pressedMovies
     }
-
 };
 
 export default connect(mapStateToProps)(CinemasDetailView);
