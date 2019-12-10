@@ -13,8 +13,6 @@ const cinemaService = () => {
         })
             .then((response) => response.json())
             .then((responseData) => {
-                // console.log(responseData);
-                console.log("INSIDE SERVICES")
                 return responseData;
             })
     }
