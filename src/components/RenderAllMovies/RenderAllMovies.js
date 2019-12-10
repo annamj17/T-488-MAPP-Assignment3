@@ -4,23 +4,7 @@ import { ListItem } from 'react-native-elements';
 
 
 const RenderAllMovies = ({ pressedMovies, onPress }) => {
-	{
-		// for (let i = 0; i < pressedMovies.length; i++) {
-		// 	let genresArray = pressedMovies[i].genres;
-
-		// 	for (let j = 0; j < genresArray.length; j++) {
-		// 		console.log(genresArray[j].Name);
-
-		// 	}
-		// }
-
-
-		// var test = pressedMovies.genres.filter(genres => { genres.Name })
-		// console.log(test)
-	}
 	return (
-		// <Text> {console.log("RENDERALL: ",pressedMovies.title)}</Text>
-
 		<View>
 			<FlatList
 				data={pressedMovies}
@@ -29,9 +13,8 @@ const RenderAllMovies = ({ pressedMovies, onPress }) => {
 					<ListItem
 						title={title}
 						index={index}
-						rightElement={year}
+						rightSubtitle={year}
 						subtitle={genres[0].Name ? genres[0].Name : ""}
-						// rightSubtitle={genres}
 						leftAvatar={{
 							source: { uri: poster },
 							size: "large",

@@ -21,6 +21,7 @@ class UpcomingMoviesView extends React.Component {
 	}
 
 	render() {
+		console.log(this.props.upcomingMovies.releasedateIS);
 		return (
 			<View style={styles.screens}>
 				<RenderUpcomingMovies
