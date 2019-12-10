@@ -3,11 +3,13 @@ import { createStackNavigator } from 'react-navigation-stack';
 
 import CinemasView from '../views/Cinemas/CinemasView';
 import CinemasDetailView from '../views/CinemasDetail/CinemasDetailView';
+import movieView from '../views/Movie/movieView';
 
 
 const StackNavigator = createStackNavigator({
     CinemasView: CinemasView,
-    CinemasDetailView: CinemasDetailView
+    CinemasDetailView: CinemasDetailView,
+    movieView: movieView
 }, {
 
     defaultNavigationOptions: {
