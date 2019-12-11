@@ -39,7 +39,7 @@ const styles = StyleSheet.create({
 
 const mapStateToProps = (reduxStoreState) => {
 	return {
-		upcomingMovies: reduxStoreState.upComingMovie
+		upcomingMovies: reduxStoreState.upComingMovie.sort((a, b) => b.releaseDateIS > a.releaseDateIS)
 	}
 };
 
