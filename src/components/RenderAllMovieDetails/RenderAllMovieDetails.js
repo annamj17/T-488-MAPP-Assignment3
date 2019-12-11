@@ -1,13 +1,16 @@
 import React from 'react';
-import { FlatList, View, Text } from 'react-native';
-import { ListItem } from 'react-native-elements';
+import { View, Text, Image } from 'react-native';
+import styles from './styles';
 
-const RenderAllMovieDetails = ({ title, poster, releaseYear, plot, onPress }) => {
+const RenderAllMovieDetails = ({ pressedMovie: { title, poster, year, plot, durationMinutes, genres }}) => {
     return (
       <View>
-			  <Text> {console.log(plot)} </Text>
+        <Text style={styles.header}> {title} </Text>
+        <Image source={{ uri:poster }} />
         <Text> {plot} </Text>
-        <Text> {releaseYear} </Text>
+        <Text style={styles.marginStyle}> {durationMinutes} min</Text>
+        <Text> Release Year: {year} </Text>
+        {/* <Text> {genres} </Text> */}
 		 </View>
     );
 }

@@ -53,7 +53,7 @@ const styles = StyleSheet.create({
 const mapStateToProps = (reduxStoreState) => {
 	// console.log(reduxStoreState);
 	return {
-		cinemas: reduxStoreState.cinema.sort((a, b) => a.name.localeCompare(b.name, 'is')),
+		cinemas: reduxStoreState.cinema.sort((a, b) => a.name.localeCompare(b.name, 'is'))
 	}
 };
 

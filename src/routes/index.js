@@ -9,6 +9,29 @@ import CinemasDetailView from '../views/CinemasDetail/CinemasDetailView';
 import movieView from '../views/Movie/movieView';
 import UpcomingMoviesView from '../views/UpcomingMovies/UpcomingMoviesView'
 
+const upcomingStack = createStackNavigator(
+	{
+		UpcomingMoviesView
+	},
+	{
+		defaultNavigationOptions: {
+			headerStyle: {
+				height: 70,
+				backgroundColor: '#087E8B',
+				elevation: 0, //Remove shadow from android
+				shadowOpacity: 0, //Remove shadow from ios
+				borderBottomWidth: 0,
+			},
+			headerTitleStyle: {
+				fontWeight: 'bold',
+				fontSize: 20
+			},
+			headerBackTitle: "back",
+			headerTintColor: '#F9F9F9'
+		}
+	}
+)
+
 const HomeStack = createStackNavigator(
 	{
 		CinemasView: CinemasView,
@@ -37,7 +60,7 @@ const HomeStack = createStackNavigator(
 
 const App = createBottomTabNavigator({
 	Home: { screen: HomeStack },
-	Upcoming: { screen: UpcomingMoviesView }
+	Upcoming: { screen: upcomingStack }
 },
 	{
 		initialRouteName: 'Home',

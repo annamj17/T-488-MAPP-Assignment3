@@ -4,12 +4,9 @@ import { connect } from 'react-redux';
 import RenderAllMovieDetails from '../../components/RenderAllMovieDetails/RenderAllMovieDetails';
 
 const movieView = ({ pressedMovie }) => {
-
     return (
         <View>
-            <Text>HALLO!!!</Text>
-            <RenderAllMovieDetails  pressedMovie={console.log("PRESSED MOVIE: ", pressedMovie)} />
-            {/* <RenderAllMovieDetails pressedMovie={console.log("PRESSED:",pressedMovie)} /> */}
+            <RenderAllMovieDetails pressedMovie={pressedMovie} />
         </View>
     )
 }
