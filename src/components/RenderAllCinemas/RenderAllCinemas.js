@@ -17,7 +17,7 @@ const RenderAllCinemas = ({ cinemasData, onPress }) => {
                         onPress={() => onPress(id)}
                     />
                 )}
-                keyExtractor={ ({id}) => id.toString() }
+                keyExtractor={({ id }) => id.toString()}
             />
         </View>
     );
