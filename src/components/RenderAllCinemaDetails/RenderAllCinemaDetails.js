@@ -1,15 +1,16 @@
 import React from 'react';
-import { FlatList, View, Text } from 'react-native';
-import { ListItem } from 'react-native-elements';
+import { View, Text } from 'react-native';
 
-const RenderAllCinemaDetails = ({ name, description, address, city, phone, website, onPress }) => {
+import styles from './styles';
+
+const RenderAllCinemaDetails = ({ name, description, address, city, phone, website }) => {
     return (
       <View>
-			  <Text> {name} </Text>
+			  <Text style={styles.header}> {name} </Text>
         <Text> {description} </Text>
-        <Text> {address} </Text>
+        <Text style={styles.addressStyle}> {address} </Text>
         <Text> {city} </Text>
-        <Text> {phone} </Text>
+        <Text> S: {phone} </Text>
         <Text> {website} </Text>
 		 </View>
     );

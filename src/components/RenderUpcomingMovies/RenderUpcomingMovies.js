@@ -8,12 +8,11 @@ const RenderUpcomingMovies = ({ upcomingMovieData }) => {
 		<View>
 			<FlatList
 				data={upcomingMovieData}
-				renderItem={({ item: { id, title, releasedateIS, poster }, index }) => (
+				renderItem={({ item: { title, releaseDateIS, poster }, index }) => (
 					<ListItem
-						id={id}
 						title={title}
 						index={index}
-						subtitle={releasedateIS}
+						subtitle={releaseDateIS}
 						leftAvatar={{
 							source: { uri: poster },
 							size: "large",

@@ -1,9 +1,6 @@
 import React from 'react';
 import { TouchableHighlight } from 'react-native';
 
-
-
-
 const Toolbar = ({ MovieData, extraData }) => (
 	<View>
 		<TouchableHighlight>
