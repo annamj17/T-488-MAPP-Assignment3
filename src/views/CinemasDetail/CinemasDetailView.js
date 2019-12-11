@@ -10,35 +10,36 @@ const CinemasDetailView = ({ pressedCinema, pressedMovies, navigation: { navigat
 	return (
 		<ScrollView>
 			<RenderAllCinemaDetails {...pressedCinema} />
-			<RenderAllMovies pressedMovies={pressedMovies} 
-                onPress={id => navigate('movieView', { id: id })}
-            />
+			<RenderAllMovies pressedMovies={pressedMovies}
+				onPress={id => navigate('movieView', { id: id })}
+			/>
 		</ScrollView>
 	)
 }
 
 const mapStateToProps = (reduxStoreState, myProps) => {
 
-    const { cinema, movie } = reduxStoreState;
-    const { navigation } = myProps;
-    const cinemaIdent = navigation.getParam('id', 0);
-    const pressedCinema = cinema.find(c => c.id === cinemaIdent)
-    const pressedMovies = movie.filter(m => {
-            return m.showtimes.some(s => s.cinema.id === cinemaIdent)
-        }).map(m => {
-            return {
-                id: m.id,
-                title: m.title,
-                genres: m.genres,
-                poster: m.poster,
-                year: m.year
-            };
-        });
-        // console.log(pressedMovies)
-    return {
-        pressedCinema,
-        pressedMovies
-    }
+	const { cinema, movie } = reduxStoreState;
+	const { navigation } = myProps;
+	const cinemaIdent = navigation.getParam('id', 0);
+	const pressedCinema = cinema.find(c => c.id === cinemaIdent)
+	const pressedMovies = movie.filter(m => {
+		return m.showtimes.some(s => s.cinema.id === cinemaIdent)
+	}).map(m => {
+		return {
+			id: m.id,
+			title: m.title,
+			genres: m.genres,
+			poster: m.poster,
+			year: m.year,
+			ratings: m.ratings
+		};
+	});
+	// console.log(pressedMovies)
+	return {
+		pressedCinema,
+		pressedMovies
+	}
 
 
 };
