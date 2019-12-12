@@ -3,15 +3,13 @@ import { ScrollView, View, StyleSheet, WebView, Platform } from 'react-native';
 import { connect } from 'react-redux';
 import RenderAllMovieDetails from '../../components/RenderAllMovieDetails/RenderAllMovieDetails';
 
-const movieView = ({ pressedMovieWithShowTime, trailers }) => {
+const movieView = ({ pressedMovieWithShowtime, trailers }) => {
 
 	return (
 		<ScrollView>
 			<View>
-
-				<RenderAllMovieDetails
-					pressedMovieWithShowTime={pressedMovieWithShowTime}
-					movieSchedules={movieSchedules} />
+				<RenderAllMovieDetails pressedMovieWithShowtime={pressedMovieWithShowtime}
+					trailers={trailers} />
 
 			</View>
 			<View style={{ height: 500, }}>
@@ -31,17 +29,18 @@ const movieView = ({ pressedMovieWithShowTime, trailers }) => {
 
 const mapStateToProps = (reduxStoreState, myProps) => {
 	const { movie } = reduxStoreState;
-    const { navigation } = myProps;
-    const movieIdent = navigation.getParam('id', 0);
-    const cinemaIdent = navigation.getParam('cinemaId', 0);
-    const pressedMovie = movie.find(c => c.id === movieIdent);
-    const showtimes = pressedMovie.showtimes.find(s => s.cinema.id === cinemaIdent);
-    const pressedMovieWithShowtime = {...pressedMovie, showtimes}
-    const trailer = pressedMovie.trailers.find(trailer => {
+	const { navigation } = myProps;
+	const movieIdent = navigation.getParam('id', 0);
+	const cinemaIdent = navigation.getParam('cinemaId', 0);
+	const pressedMovie = movie.find(c => c.id === movieIdent);
+	const showtimes = pressedMovie.showtimes.find(s => s.cinema.id === cinemaIdent);
+	const pressedMovieWithShowtime = { ...pressedMovie, showtimes }
+	const trailer = pressedMovie.trailers.find(trailer => {
 		return trailer.results.length > 0;
-    return {
-        pressedMovieWithShowtime,
-      	trailers: trailer ? trailer.results : null,
+	});
+	return {
+		pressedMovieWithShowtime,
+		trailers: trailer ? trailer.results : null,
 	}
 };
 const styles = StyleSheet.create({
