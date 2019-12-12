@@ -32,7 +32,6 @@ class CinemasView extends React.Component {
 
 		const { navigate } = this.props.navigation;
 		return (
-
 			<View style={styles.screens}>
 				<RenderAllCinemas
 					cinemasData={this.props.cinemas}
