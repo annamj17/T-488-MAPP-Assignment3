@@ -5,6 +5,7 @@ import styles from './styles';
 const RenderAllCinemaDetails = ({ name, description, address, city, phone, website }) => {
 	return (
 		<View>
+			<Text style={styles.header}> {name}</Text>
 			<View style={styles.textContent}>
 				<Text style={styles.textDescription}> {description} </Text>
 				<Text style={styles.text}> {address} </Text>

@@ -10,17 +10,17 @@ const movieView = ({ pressedMovieWithShowtime, trailers }) => {
 			<View>
 				<RenderAllMovieDetails pressedMovieWithShowtime={pressedMovieWithShowtime}
 					trailers={trailers} />
-
 			</View>
 			<View style={{ height: 500, }}>
 				{
-					trailers.map(t => <WebView
-						key={t.id}
-						style={styles.WebViewContainer}
-						javaScriptEnabled={true}
-						domStorageEnabled={true}
-						source={{ uri: t.url }}
-					/>)
+					trailers.map(t =>
+						<WebView
+							key={t.id}
+							style={styles.WebViewContainer}
+							javaScriptEnabled={true}
+							domStorageEnabled={true}
+							source={{ uri: t.url }}
+						/>)
 				}
 			</View>
 		</ScrollView>
@@ -40,7 +40,7 @@ const mapStateToProps = (reduxStoreState, myProps) => {
 	});
 	return {
 		pressedMovieWithShowtime,
-		trailers: trailer ? trailer.results : null,
+		trailers: trailer ? trailer.results : '',
 	}
 };
 const styles = StyleSheet.create({

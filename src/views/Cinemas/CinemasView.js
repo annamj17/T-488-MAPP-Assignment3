@@ -36,7 +36,7 @@ class CinemasView extends React.Component {
 			<View style={styles.screens}>
 				<RenderAllCinemas
 					cinemasData={this.props.cinemas}
-					onPress={(id, title) => navigate('CinemasDetailView', { id, title })}
+					onPress={(id, title) => navigate('CinemasDetailView', { id: id, title })}
 				/>
 			</View>
 		);
