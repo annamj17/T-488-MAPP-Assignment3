@@ -8,13 +8,12 @@ const RenderAllMovieDetails = ({ pressedMovieWithShowtime: { title, poster, year
 	return (
 		<View style={styles.content}>
 			<Text style={styles.header}> {title} </Text>
-			<ImageBackground style={{ width: '100%', height: 250 }} source={{ uri: poster }}>
-			</ImageBackground>
+			<ImageBackground style={{ width: '100%', height: 250 }} source={{ uri: poster }} />
 			<ScrollView style={styles.textContent}>
 				<Text> {plot} </Text>
 				<View>
 					<View style={styles.rating}>
-						<Text style={styles.ratingText} > IMDB </Text>
+						<Text style={styles.ratingText}> IMDB </Text>
 						<Rating
 							type='star'
 							startingValue={Number(ratings.imdb)}
@@ -55,6 +54,6 @@ const RenderAllMovieDetails = ({ pressedMovieWithShowtime: { title, poster, year
 			</ScrollView>
 		</View>
 	);
-}
+};
 
 export default RenderAllMovieDetails;

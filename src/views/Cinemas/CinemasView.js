@@ -1,6 +1,7 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
 import { connect } from 'react-redux';
+
 import { getCinemas } from '../../actions/cinemaActions';
 import { getMovies } from '../../actions/movieAction';
 import { getUpcomingMovies } from '../../actions/upcomingMovieAction';
@@ -16,12 +17,6 @@ class CinemasView extends React.Component {
 		},
 	};
 
-	constructor(props) {
-		super(props);
-		this.state = {
-		};
-	}
-
 	componentDidMount() {
 		this.props.getCinemas();
 		this.props.getMovies();
@@ -31,7 +26,7 @@ class CinemasView extends React.Component {
 	render() {
 
 		const { navigate } = this.props.navigation;
-
+		
 		return (
 			<View style={styles.screens}>
 				<RenderAllCinemas
@@ -40,8 +35,8 @@ class CinemasView extends React.Component {
 				/>
 			</View>
 		);
-	}
-}
+	};
+};
 
 const styles = StyleSheet.create({
 	screens: {
@@ -50,10 +45,9 @@ const styles = StyleSheet.create({
 });
 
 const mapStateToProps = (reduxStoreState) => {
-	// console.log(reduxStoreState);
 	return {
 		cinemas: reduxStoreState.cinema.sort((a, b) => a.name.localeCompare(b.name, 'is'))
-	}
+	};
 };
 
 export default connect(mapStateToProps, { getCinemas, getMovies, getUpcomingMovies })(CinemasView);

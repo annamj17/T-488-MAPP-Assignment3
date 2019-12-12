@@ -13,6 +13,6 @@ const getAllCinemas = async () => {
 		.then((responseData) => {
 			return responseData;
 		});
-}
+};
 
 export default getAllCinemas;

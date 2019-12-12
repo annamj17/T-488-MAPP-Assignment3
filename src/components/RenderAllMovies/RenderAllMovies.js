@@ -2,7 +2,6 @@ import React from 'react';
 import { FlatList, View, Text } from 'react-native';
 import { ListItem } from 'react-native-elements';
 
-
 const RenderAllMovies = ({ pressedMovies, onPress }) => {
 	return (
 		<View>
@@ -36,5 +35,6 @@ const RenderAllMovies = ({ pressedMovies, onPress }) => {
 			/>
 		</View>
 	);
-}
+};
+
 export default RenderAllMovies;

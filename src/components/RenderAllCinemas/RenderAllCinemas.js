@@ -21,6 +21,6 @@ const RenderAllCinemas = ({ cinemasData, onPress }) => {
 			/>
 		</View>
 	);
-}
+};
 
 export default RenderAllCinemas;

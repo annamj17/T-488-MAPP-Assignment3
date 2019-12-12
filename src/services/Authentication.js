@@ -14,5 +14,5 @@ export const getAuthentication = () => {
         .then((response) => response.json())
         .then((responseData) => {
             return responseData.token;
-        })
-}
+        });
+};
