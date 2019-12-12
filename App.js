@@ -9,9 +9,9 @@ import AppContainer from './src/routes';
 const ConnectedApp = connect(null, null)(AppContainer);
 
 export default function App() {
-  return (
-    <Provider store={ createStore(reducers, applyMiddleware(thunk)) }>
-        <ConnectedApp />
-    </Provider>
-  );
+	return (
+		<Provider store={createStore(reducers, applyMiddleware(thunk))}>
+			<ConnectedApp />
+		</Provider>
+	);
 }
