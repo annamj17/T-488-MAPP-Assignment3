@@ -3,7 +3,6 @@ import { FlatList, View } from 'react-native';
 import { ListItem } from 'react-native-elements';
 
 const RenderUpcomingMovies = ({ upcomingMovieData }) => {
-
 	return (
 		<View>
 			<FlatList
@@ -24,5 +23,6 @@ const RenderUpcomingMovies = ({ upcomingMovieData }) => {
 				keyExtractor={({ id }) => id.toString()} />
 		</View>
 	);
-}
+};
+
 export default RenderUpcomingMovies;

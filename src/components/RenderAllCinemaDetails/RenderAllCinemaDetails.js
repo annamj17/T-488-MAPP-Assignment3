@@ -1,5 +1,6 @@
 import React from 'react';
 import { View, Text, Linking } from 'react-native';
+
 import styles from './styles';
 
 const RenderAllCinemaDetails = ({ name, description, address, city, phone, website }) => {
@@ -15,6 +16,6 @@ const RenderAllCinemaDetails = ({ name, description, address, city, phone, websi
 			</View>
 		</View>
 	);
-}
+};
 
 export default RenderAllCinemaDetails;

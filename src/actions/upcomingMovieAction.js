@@ -10,10 +10,10 @@ export const getUpcomingMovies = () => {
 			cinemaObject = JSON.parse(cleanString);
 			dispatch(getUpcomingMoviesSuccess(cinemaObject));
 		} catch (err) {
-			// TODO: Should dispatch an error action
+			return (err);
 		}
 	};
-}
+};
 
 const getUpcomingMoviesSuccess = movies => {
 	return {

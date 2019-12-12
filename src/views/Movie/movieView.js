@@ -1,6 +1,7 @@
 import React from 'react';
 import { ScrollView, View, StyleSheet, WebView, Platform } from 'react-native';
 import { connect } from 'react-redux';
+
 import RenderAllMovieDetails from '../../components/RenderAllMovieDetails/RenderAllMovieDetails';
 
 const movieView = ({ pressedMovieWithShowtime, trailers }) => {

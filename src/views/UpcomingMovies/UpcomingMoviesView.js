@@ -1,6 +1,7 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
 import { connect } from 'react-redux';
+
 import RenderUpcomingMovies from '../../components/RenderUpcomingMovies/RenderUpcomingMovies';
 
 class UpcomingMoviesView extends React.Component {
@@ -13,14 +14,8 @@ class UpcomingMoviesView extends React.Component {
 		},
 	};
 
-	constructor(props) {
-		super(props);
-		this.state = {
-		};
-	}
-
 	render() {
-		
+
 		return (
 			<View style={styles.screens}>
 				<RenderUpcomingMovies
@@ -40,7 +35,7 @@ const styles = StyleSheet.create({
 const mapStateToProps = (reduxStoreState) => {
 	return {
 		upcomingMovies: reduxStoreState.upComingMovie.sort((a, b) => b.releaseDateIS > a.releaseDateIS)
-	}
+	};
 };
 
 export default connect(mapStateToProps)(UpcomingMoviesView);
