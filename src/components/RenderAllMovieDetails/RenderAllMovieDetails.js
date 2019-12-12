@@ -28,23 +28,23 @@ const RenderAllMovieDetails = ({ pressedMovieWithShowtime: { title, poster, year
 						<Text style={styles.ratingNumbers}> {ratings.imdb} </Text>
 					</View>
 					<View>
-						<Text style={styles.inform}> Lengd     : {durationMinutes} mín</Text>
-						<Text style={styles.inform}> Utgáfuár : {year} </Text>
+						<Text style={styles.inform}> Lengd      : {durationMinutes} mín</Text>
+						<Text style={styles.inform}> Útgáfuár  : {year} </Text>
 					</View>
 					<View>
 						{showtimes.schedule.map((s) => (
 							<Text key={s.time}>
-								<Text style={styles.info}>Sýningar:  </Text> {s.time}
+								<Text style={styles.info}> Sýningar :  {s.time}  </Text>
 								<Text
 									style={styles.link}
 									onPress={() => { Linking.openURL(s.purchase_url); }}>
-									{s.purchase_url}
+									Kaupa miða
 								</Text>
 							</Text>
 						))}
 					</View>
 					<View>
-						<Text style={styles.info}>Genre: </Text>
+						<Text style={styles.info}>Tegund myndar: </Text>
 						{genres.map((g) => (
 							<Text key={g.ID}>
 								{g.Name}
