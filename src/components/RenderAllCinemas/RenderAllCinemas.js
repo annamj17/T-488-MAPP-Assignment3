@@ -14,7 +14,7 @@ const RenderAllCinemas = ({ cinemasData, onPress }) => {
 						subtitle={website}
 						bottomDivider
 						chevron
-						onPress={() => onPress(id)}
+						onPress={() => onPress(id, name)}
 					/>
 				)}
 				keyExtractor={({ id }) => id.toString()}

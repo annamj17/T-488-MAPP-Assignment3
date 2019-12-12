@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, ScrollView, TouchableHighlight, TouchableOpacity } from 'react-native';
+import { View, ScrollView, Text, TouchableHighlight, TouchableOpacity } from 'react-native';
 import { connect } from 'react-redux';
 import { getCinemas } from '../../actions/cinemaActions';
 import RenderAllCinemaDetails from '../../components/RenderAllCinemaDetails/RenderAllCinemaDetails';
@@ -15,6 +15,17 @@ const CinemasDetailView = ({ pressedCinema, pressedMovies, navigation: { navigat
 			/>
 		</ScrollView>
 	)
+}
+
+CinemasDetailView.navigationOptions = {
+	header: (props) => {
+		const title = props.scene.route.params.title;
+		return (
+			<View>
+				<Text style={{ fontSize: 32, }}>{title}</Text>
+			</View>
+		);
+	},
 }
 
 const mapStateToProps = (reduxStoreState, myProps) => {

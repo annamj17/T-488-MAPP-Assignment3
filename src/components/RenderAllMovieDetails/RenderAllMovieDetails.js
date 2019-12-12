@@ -3,8 +3,8 @@ import { View, Text, ImageBackground, Linking, ScrollView } from 'react-native';
 import { Rating } from 'react-native-ratings';
 import styles from './styles';
 
-const RenderAllMovieDetails = ({ pressedMovieWithShowtime: { title, poster, year, plot, durationMinutes, genres, ratings, showtimes } }) => {
 
+const RenderAllMovieDetails = ({ pressedMovieWithShowtime: { title, poster, year, plot, durationMinutes, genres, ratings, showtimes } }) => {
 	return (
 		<View style={styles.content}>
 			<Text style={styles.header}> {title} </Text>
