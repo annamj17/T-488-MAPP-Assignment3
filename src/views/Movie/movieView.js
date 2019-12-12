@@ -24,6 +24,7 @@ const movieView = ({ pressedMovieWithShowtime, trailers }) => {
 									<WebView
 										key={t.id}
 										style={styles.WebViewContainer}
+										useWebKit={true}
 										javaScriptEnabled={true}
 										domStorageEnabled={true}
 										source={{ uri: t.url }}
@@ -32,7 +33,7 @@ const movieView = ({ pressedMovieWithShowtime, trailers }) => {
 						</View>
 					</>
 			}
-		</ScrollView >
+		</ScrollView>
 	)
 }
 
