@@ -12,6 +12,10 @@ export default StyleSheet.create({
 		justifyContent: 'center'
 	},
 	info: {
+		fontWeight: 'bold',
+		paddingTop: 5
+	},
+	inform: {
 		fontWeight: 'bold'
 	},
 	rating: {
@@ -36,5 +40,11 @@ export default StyleSheet.create({
 		paddingTop: 5,
 		paddingBottom: 5,
 		fontWeight: 'bold'
+	},
+	link: {
+		fontSize: 15,
+		color: '#E91E63',
+		textAlign: 'left',
+		textDecorationLine: 'underline'
 	}
 });

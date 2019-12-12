@@ -3,11 +3,11 @@ import { View, StyleSheet, WebView, Platform } from 'react-native';
 import { connect } from 'react-redux';
 import RenderAllMovieDetails from '../../components/RenderAllMovieDetails/RenderAllMovieDetails';
 
-const movieView = ({ pressedMovie }) => {
+const movieView = ({ pressedMovieWithShowtime }) => {
 	return (
 		<View>
 			<View>
-				<RenderAllMovieDetails pressedMovie={pressedMovie} />
+                <RenderAllMovieDetails pressedMovieWithShowtime={pressedMovieWithShowtime} />
 			</View>
 			{/* {hasTrailer
 				?
@@ -28,11 +28,15 @@ const movieView = ({ pressedMovie }) => {
 
 const mapStateToProps = (reduxStoreState, myProps) => {
 	const { movie } = reduxStoreState;
-	const { navigation } = myProps;
-	const movieIdent = navigation.getParam('id', 0);
-	const pressedMovie = movie.find(c => c.id === movieIdent)
-	return {
-		pressedMovie
+    const { navigation } = myProps;
+    const movieIdent = navigation.getParam('id', 0);
+    const cinemaIdent = navigation.getParam('cinemaId', 0);
+    const pressedMovie = movie.find(c => c.id === movieIdent);
+    const showtimes = pressedMovie.showtimes.find(s => s.cinema.id === cinemaIdent);
+    const pressedMovieWithShowtime = {...pressedMovie, showtimes}
+    
+    return {
+        pressedMovieWithShowtime
 	}
 };
 const styles = StyleSheet.create({
