@@ -3,6 +3,7 @@ import { FlatList, View } from 'react-native';
 import { ListItem } from 'react-native-elements';
 
 const RenderAllCinemas = ({ cinemasData, onPress }) => {
+	console.log(cinemasData);
 	return (
 		<View>
 			<FlatList
@@ -14,7 +15,7 @@ const RenderAllCinemas = ({ cinemasData, onPress }) => {
 						subtitle={website}
 						bottomDivider
 						chevron
-						onPress={() => onPress(id)}
+						onPress={() => onPress(id, name)}
 					/>
 				)}
 				keyExtractor={({ id }) => id.toString()}

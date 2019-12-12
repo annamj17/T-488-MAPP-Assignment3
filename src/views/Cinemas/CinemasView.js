@@ -1,7 +1,6 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
 import { connect } from 'react-redux';
-import { getAuthenticatoin } from '../../services/Authentication';
 import { getCinemas } from '../../actions/cinemaActions';
 import { getMovies } from '../../actions/movieAction';
 import { getUpcomingMovies } from '../../actions/upcomingMovieAction';
@@ -9,39 +8,39 @@ import RenderAllCinemas from '../../components/RenderAllCinemas/RenderAllCinemas
 
 class CinemasView extends React.Component {
 
-    static navigationOptions = {
-        headerTitle: 'Cinemas',
-        headerTitleStyle: {
-            fontWeight: 'bold',
-            fontSize: 20
-        },
-    };
+	static navigationOptions = {
+		headerTitle: 'Cinemas',
+		headerTitleStyle: {
+			fontWeight: 'bold',
+			fontSize: 20
+		},
+	};
 
-    constructor(props) {
-        super(props);
-        this.state = {
-        };
-    }
-    
-    componentDidMount() { 
-        this.props.getCinemas();
-        this.props.getMovies();
-        this.props.getUpcomingMovies();
-    };
+	constructor(props) {
+		super(props);
+		this.state = {
+		};
+	}
 
-    render () {
+	componentDidMount() {
+		this.props.getCinemas();
+		this.props.getMovies();
+		this.props.getUpcomingMovies();
+	};
 
-        const { navigate } = this.props.navigation;
+	render() {
 
-        return (
-            <View style={styles.screens}>
-            <RenderAllCinemas
-                cinemasData={this.props.cinemas}
-                onPress={id => navigate('CinemasDetailView', { id: id })}
-            />
-            </View>
-        );
-    }
+		const { navigate } = this.props.navigation;
+		return (
+
+			<View style={styles.screens}>
+				<RenderAllCinemas
+					cinemasData={this.props.cinemas}
+					onPress={(id, title) => navigate('CinemasDetailView', { id, title })}
+				/>
+			</View>
+		);
+	}
 }
 
 const styles = StyleSheet.create({
