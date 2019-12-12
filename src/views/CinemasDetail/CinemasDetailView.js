@@ -1,20 +1,31 @@
 import React from 'react';
-import { View, ScrollView, TouchableHighlight, TouchableOpacity } from 'react-native';
+import { View, ScrollView, Text, TouchableHighlight, TouchableOpacity } from 'react-native';
 import { connect } from 'react-redux';
 import { getCinemas } from '../../actions/cinemaActions';
 import RenderAllCinemaDetails from '../../components/RenderAllCinemaDetails/RenderAllCinemaDetails';
 import RenderAllMovies from '../../components/RenderAllMovies/RenderAllMovies';
 import movieView from '../../views/Movie/movieView';
 
-const CinemasDetailView = ({ pressedCinema, pressedMovies, navigation: { navigate }, onPress }) => {
+const CinemasDetailView = ({ pressedCinema, pressedMovies, navigation: { navigate, getParam }, onPress }) => {
 	return (
 		<ScrollView>
 			<RenderAllCinemaDetails {...pressedCinema} />
 			<RenderAllMovies pressedMovies={pressedMovies}
-				onPress={id => navigate('movieView', { id: id })}
+				onPress={id => navigate('movieView', { id: id, cinemaId: getParam('id', 0) })}
 			/>
 		</ScrollView>
 	)
+}
+
+CinemasDetailView.navigationOptions = {
+	header: (props) => {
+		const title = props.scene.route.params.title;
+		return (
+			<View>
+				<Text style={{ fontSize: 32, }}>{title}</Text>
+			</View>
+		);
+	},
 }
 
 const mapStateToProps = (reduxStoreState, myProps) => {
