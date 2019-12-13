@@ -16,15 +16,18 @@ class UpcomingMoviesView extends React.Component {
 
 	render() {
 
+		const { navigate } = this.props.navigation;
+
 		return (
 			<View style={styles.screens}>
 				<RenderUpcomingMovies
 					upcomingMovieData={this.props.upcomingMovies}
+					onPress={(id) => navigate('UpcomingMovieDetailView', { id: id })}
 				/>
 			</View>
 		);
-	}
-}
+	};
+};
 
 const styles = StyleSheet.create({
 	screens: {

@@ -4,8 +4,8 @@ import { connect } from 'react-redux';
 
 import RenderAllMovieDetails from '../../components/RenderAllMovieDetails/RenderAllMovieDetails';
 
-const movieView = ({ pressedMovieWithShowtime, trailers, height }) => {
-	console.log(trailers);
+const movieView = ({ pressedMovieWithShowtime, trailers }) => {
+
 	return (
 		<ScrollView>
 			<View>
@@ -35,7 +35,7 @@ const movieView = ({ pressedMovieWithShowtime, trailers, height }) => {
 			}
 		</ScrollView>
 	)
-}
+};
 
 const mapStateToProps = (reduxStoreState, myProps) => {
 	const { movie } = reduxStoreState;
@@ -48,12 +48,11 @@ const mapStateToProps = (reduxStoreState, myProps) => {
 	const trailer = pressedMovie.trailers.find(trailer => {
 		return trailer.results.length > 0;
 	});
-	//	const height = trailer.results.length * 275;
+
 	return {
 		pressedMovieWithShowtime,
 		trailers: trailer ? trailer.results : null,
-		//	height,
-	}
+	};
 };
 const styles = StyleSheet.create({
 

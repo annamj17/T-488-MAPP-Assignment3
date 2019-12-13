@@ -8,6 +8,7 @@ import CinemasView from '../views/Cinemas/CinemasView';
 import CinemasDetailView from '../views/CinemasDetail/CinemasDetailView';
 import movieView from '../views/Movie/movieView';
 import UpcomingMoviesView from '../views/UpcomingMovies/UpcomingMoviesView'
+import UpcomingMovieDetailView from '../views/UpcomingMovieDetail/UpcomingMovieDetailView';
 
 const upcomingStack = createStackNavigator(
 	{
@@ -37,7 +38,8 @@ const HomeStack = createStackNavigator(
 		CinemasView: CinemasView,
 		CinemasDetailView: CinemasDetailView,
 		movieView: movieView,
-		UpcomingMoviesView: UpcomingMoviesView
+		UpcomingMoviesView: UpcomingMoviesView,
+		UpcomingMovieDetailView: UpcomingMovieDetailView
 	},
 	{
 		defaultNavigationOptions: {
