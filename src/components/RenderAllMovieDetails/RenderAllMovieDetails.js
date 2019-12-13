@@ -6,7 +6,7 @@ import styles from './styles';
 
 const RenderAllMovieDetails = ({ pressedMovieWithShowtime: { title, poster, year, plot, durationMinutes, genres, ratings, showtimes } }) => {
 	return (
-		<View style={styles.content}>
+		<View>
 			<Text style={styles.header}> {title} </Text>
 			<ImageBackground style={{ width: '100%', height: 250 }} source={{ uri: poster }} />
 			<ScrollView style={styles.textContent}>
