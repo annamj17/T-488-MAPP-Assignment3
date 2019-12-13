@@ -12,7 +12,8 @@ import UpcomingMovieDetailView from '../views/UpcomingMovieDetail/UpcomingMovieD
 
 const upcomingStack = createStackNavigator(
 	{
-		UpcomingMoviesView
+		UpcomingMoviesView,
+		UpcomingMovieDetailView
 	},
 	{
 		defaultNavigationOptions: {
@@ -37,9 +38,7 @@ const HomeStack = createStackNavigator(
 	{
 		CinemasView: CinemasView,
 		CinemasDetailView: CinemasDetailView,
-		movieView: movieView,
-		UpcomingMoviesView: UpcomingMoviesView,
-		UpcomingMovieDetailView: UpcomingMovieDetailView
+		movieView: movieView
 	},
 	{
 		defaultNavigationOptions: {
