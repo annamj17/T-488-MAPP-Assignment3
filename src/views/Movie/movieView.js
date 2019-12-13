@@ -1,5 +1,5 @@
 import React from 'react';
-import { ScrollView, View, StyleSheet, WebView, Platform } from 'react-native';
+import { ScrollView, Text, View, StyleSheet, WebView, Platform } from 'react-native';
 import { connect } from 'react-redux';
 
 import RenderAllMovieDetails from '../../components/RenderAllMovieDetails/RenderAllMovieDetails';
@@ -15,7 +15,7 @@ const movieView = ({ pressedMovieWithShowtime, trailers }) => {
 			{
 				!trailers
 					?
-					<View />
+					<Text> No trailer available for this movie </Text>
 					:
 					<>
 						< View style={{ height: Number(trailers.length * 275), }}>
