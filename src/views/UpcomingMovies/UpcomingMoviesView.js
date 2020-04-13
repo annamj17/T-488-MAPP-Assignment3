@@ -42,4 +42,3 @@ const mapStateToProps = (reduxStoreState) => {
 };
 
 export default connect(mapStateToProps)(UpcomingMoviesView);
-
