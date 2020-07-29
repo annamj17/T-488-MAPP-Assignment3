@@ -17,7 +17,8 @@ api.kvikmyndir.is/. In order to use the API you must register by pressing the â€
 
 ## Setup
 To run this project, install it locally using npm:
-...
+
+```
 $ npm install
 $ npm start
-...
+```
