@@ -18,7 +18,14 @@ api.kvikmyndir.is/. In order to use the API you must register by pressing the â€
 
 ## Photos of the app
 <img src="https://user-images.githubusercontent.com/34062147/88915816-775eaa80-d254-11ea-93c1-9328aa5dcc29.png" width="400" height="790">
+
 <img src="https://user-images.githubusercontent.com/34062147/88916076-f8b63d00-d254-11ea-9813-ec0fd0220717.png" width="400" height="790">
+
+<img src="https://user-images.githubusercontent.com/34062147/88916714-1506a980-d256-11ea-8977-a034981f64bf.png" width="400" height="790">
+
+<img src="https://user-images.githubusercontent.com/34062147/88916743-2354c580-d256-11ea-85c9-c0c1853b4be2.png" width="400" height="790">
+
+<img src="https://user-images.githubusercontent.com/34062147/88916768-2f408780-d256-11ea-8065-50b2f6d102f5.png" width="400" height="790">
 
 ## Setup
 To run this project, install it locally using npm:
